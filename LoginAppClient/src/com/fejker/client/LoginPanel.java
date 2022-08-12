@@ -53,7 +53,7 @@ public class LoginPanel {
 
     private void login() throws IOException{
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        password = Integer.toString(password.hashCode());
+        password = Integer.toString(password.hashCode());                   //definitely need to change this for security purposes
         printWriter.println(register);
         printWriter.println(username);
         printWriter.println(password);
@@ -73,7 +73,7 @@ public class LoginPanel {
 
     static void connect() {
         try {
-            socket = new Socket("localhost", 27000);
+            socket = new Socket("localhost", 27000);            //ip address of server that handles logins and registers
         } catch (IOException e) {
             e.printStackTrace();
         }
