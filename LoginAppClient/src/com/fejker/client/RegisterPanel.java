@@ -33,7 +33,7 @@ public class RegisterPanel {
                 username = usernameField.getText().toLowerCase();
                 password = passwordField.getText();
                 password_confirm = passwordconfField.getText();
-                if (username.length() < 3) {
+                if (username.length() < 3) {                                                            // at least 4 chars
                     JOptionPane.showMessageDialog(null, "Username powinien mieć przynajmniej 4 znaki!");
                     try {
                         socket.close();
@@ -46,7 +46,7 @@ public class RegisterPanel {
                         e.printStackTrace();
                     }
                 }
-                if (username.contains("admin") || username.contains("root")) {
+                if (username.contains("admin") || username.contains("root")) {                          //securing unwanted logins
                     JOptionPane.showMessageDialog(null, "Username zawiera zakazany element.");
                     try {
                         socket.close();
@@ -72,7 +72,7 @@ public class RegisterPanel {
                         e.printStackTrace();
                     }
                 } else {
-                    password = Integer.toString(password.hashCode());
+                    password = Integer.toString(password.hashCode());               //definitely need to change this for security purposes
                     try {
                         register(socket);
                     } catch (IOException e) {
